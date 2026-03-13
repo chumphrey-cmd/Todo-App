@@ -22,7 +22,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(TaskControllerTest.class)
+/// We modified the WebMvcTest from TaskControllerTest.class -> TaskController.test the problem was that we were loading a stub of WebMvcTest essentially loading itself on itself...
+
+@WebMvcTest(TaskController.class)
 class TaskControllerTest {
 
     @Autowired
@@ -40,7 +42,7 @@ class TaskControllerTest {
     @Test
     void shouldSaveNewTask() throws Exception {
         // Arrange
-        Category newCategory = new Category("important");
+        Category newCategory = new Category("immediate");
         Task newTask = new Task("Learn about testing HTTP request/response", "Learn how to use WebMvcTest", false, newCategory);
         newTask.setId(1L);
 
@@ -69,7 +71,7 @@ class TaskControllerTest {
                 "Learn about testing HTTP request/response",
                 "Learn how to use WebMvcTest",
                 false,
-                new Category("enablement"));
+                new Category("immediate"));
         newTask.setId(1L);
 
         when(taskService.saveTask(any(Task.class))).thenReturn(newTask);

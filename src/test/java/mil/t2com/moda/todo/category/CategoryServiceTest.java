@@ -27,7 +27,9 @@ class CategoryServiceTest {
     @Test
     void shouldSaveNewCategory() {
         // Arrange
-        Category newCategory = new Category("delayed");
+
+        ///  Modified to Delayed from "delayed"
+        Category newCategory = new Category("Delayed");
         newCategory.setId(1L);
 
         // Act

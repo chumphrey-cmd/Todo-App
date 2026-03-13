@@ -17,7 +17,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+
+/// Specified the WebMvcTest with CategoryController.class... We don't specific what we're mocking....
+@WebMvcTest(CategoryController.class)
 class CategoryControllerTest {
 
     @Autowired
@@ -35,7 +37,7 @@ class CategoryControllerTest {
     @Test
     void shouldSaveNewCategory() throws Exception {
         // Arrange
-        Category newCategory = new Category("normal");
+        Category newCategory = new Category("Normal");
         newCategory.setId(1L);
 
         when(categoryService.saveCategory(any(Category.class))).thenReturn(newCategory);

@@ -20,7 +20,7 @@ class TaskRepositoryTest {
     void shouldSaveANewTask() {
         // Arrange
         Category newCategory = new Category("important");
-        Task newTask = new Task("Learn TDD", "Remember to use this pattern; Red, green, refactor", false, newCategory);
+        Task newTask = new Task("Learn tdd", "Remember to use this pattern; Red, green, refactor", false, newCategory);
 
         // Act
         Task savedNewTask = taskRepository.save(newTask);
@@ -29,8 +29,12 @@ class TaskRepositoryTest {
         // Assert
         assertEquals("Learn tdd", result.get().getTitle());
         assertThat(result.get().getDescription()).isEqualTo(newTask.getDescription());
+
         // Add category value test
-        assertThat(result.get().getCategory().getLabel()).isEqualTo(newTask.getCategory());
+
+        /// Here we added the ".getLabel()" because previously it was just extracting only the "newTask.getCategory()".
+        /// We needed to dive into the "Category" object to extract the label of "important"
+        assertThat(result.get().getCategory().getLabel()).isEqualTo(newTask.getCategory().getLabel());
         assertThat(result.get()).isEqualTo(newTask);
     }
 }

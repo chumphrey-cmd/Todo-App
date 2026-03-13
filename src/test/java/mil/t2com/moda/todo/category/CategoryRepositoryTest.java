@@ -18,7 +18,9 @@ class CategoryRepositoryTest {
     @Test
     void shouldSaveNewCategory() {
         // Arrange
-        Category newCategory = new Category("important");
+
+        /// Modified to "Important from important"
+        Category newCategory = new Category("Important");
 
         // Act
         Category savedNewCategory = categoryRepository.save(newCategory);
