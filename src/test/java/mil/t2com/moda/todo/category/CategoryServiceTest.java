@@ -19,6 +19,7 @@ class CategoryServiceTest {
     CategoryService categoryService;
 
     // Start using when refactoring
+    // BeforeEach allows you to repeat duplicate tests that you've already made... If you start repeating yourself, use this annotation!
 //    @BeforeEach
 //    void setUp() {
     ////        MockitoAnnotations.openMocks(this);

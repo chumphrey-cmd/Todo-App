@@ -1,6 +1,13 @@
 spring:
   application:
     name: todo
+
+  datasource:
+    url: jdbc:postgresql://localhost:9999/todo
+    driver-class-name: org.postgresql.Driver
+    username: chuma
+    password: password
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
