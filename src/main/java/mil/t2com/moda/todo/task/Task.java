@@ -13,7 +13,8 @@ public class Task {
     private String description;
     private Boolean isComplete;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    /// Removed Cascade from out Entity.java (Task.java) to prevent the creation of duplicate entries for one POST request.
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 

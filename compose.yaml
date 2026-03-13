@@ -11,7 +11,7 @@ services:
       POSTGRES_DB: todo
       POSTGRES_HOST_AUTH_METHOD: password
     ports:
-      - "5434:5432" # 5401 (external port - public facing) 5400 (internal port - private facing listener...)
+      - "5434:5432" # 5434 (external port - public facing) 5432 (internal port - private facing listener...)
 
 volumes:
   postgresql_data:
