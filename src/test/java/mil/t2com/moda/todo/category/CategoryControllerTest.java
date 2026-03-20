@@ -40,7 +40,7 @@ class CategoryControllerTest {
         Category newCategory = new Category("Normal");
         newCategory.setId(1L);
 
-        when(categoryService.saveCategory(any(Category.class))).thenReturn(newCategory);
+        when(categoryService.saveNewCategory(any(Category.class))).thenReturn(newCategory);
 
         // Act
         mockMvc.perform(post("/api/v1/category")
@@ -51,9 +51,9 @@ class CategoryControllerTest {
                 .andExpect(jsonPath("$.label").value("Normal"));
 
         // Assert
-        verify(categoryService, only()).saveCategory(captor.capture());
+        verify(categoryService, only()).saveNewCategory(captor.capture());
         assertThat(captor.getValue()).usingRecursiveComparison().isEqualTo(newCategory);
 
-        verify(categoryService, times(1)).saveCategory(any(Category.class));
+        verify(categoryService, times(1)).saveNewCategory(any(Category.class));
     }
 }

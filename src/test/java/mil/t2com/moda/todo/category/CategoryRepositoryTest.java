@@ -29,8 +29,27 @@ class CategoryRepositoryTest {
         // Assert
         assertEquals("Important", result.get().getLabel());
         assertThat(result.get().getLabel()).isEqualTo(newCategory.getLabel());
+
         // Add category value test
         assertThat(result.get().getLabel()).isEqualTo(newCategory.getLabel());
         assertThat(result.get()).isEqualTo(newCategory);
     }
+
+    @Test
+    // Now we're adding in a new category
+    void shouldFindCategoryByLabel() {
+
+        // Arrange
+        Category newCategory = new Category("important");
+        ///  Create another method for method overloading so that we can accept multiple parameters via method overloading!
+
+        // Act
+        categoryRepository.save(newCategory);
+        Optional<Category> found = categoryRepository.findByLabel(newCategory.getLabel());
+
+        // Assert
+        assertThat(found.get().getLabel()).isEqualTo(newCategory.getLabel());
+    }
 }
+
+

@@ -1,4 +1,6 @@
-CREATE SEQUENCE IF NOT EXISTS task_seq START WITH 1 INCREMENT BY 50;
+
+-- Removing so that I don't have to worry about the database auto incrementing by 50.
+-- CREATE SEQUENCE IF NOT EXISTS task_seq START WITH 1 INCREMENT BY 50;
 
 CREATE TABLE category
 (

@@ -3,7 +3,7 @@ spring:
     name: todo
 
   datasource:
-    url: jdbc:postgresql://localhost:9999/todo
+    url: jdbc:postgresql://localhost:5434/todo
     driver-class-name: org.postgresql.Driver
     username: chuma
     password: password

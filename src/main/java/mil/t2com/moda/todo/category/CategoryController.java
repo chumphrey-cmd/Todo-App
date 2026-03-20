@@ -18,7 +18,7 @@ public class CategoryController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Category saveNewCategory(@RequestBody Category category) {
-        return categoryService.saveCategory(category);
+        return categoryService.saveNewCategory(category);
     }
 
     @GetMapping()
