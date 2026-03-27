@@ -1,9 +1,29 @@
+#services:
+#  postgres-db:
+#    container_name: todo
+#    image: postgres # use latest official postgres version
+#    restart: always
+#    volumes:
+#      - ./postgres-data:/var/lib/postgresql
+#    environment:
+#      POSTGRES_USER: chuma
+#      POSTGRES_PASSWORD: password
+#      POSTGRES_DB: todo
+#      POSTGRES_HOST_AUTH_METHOD: password
+#    ports:
+#      - "5434:5432" # 5434 (external port - public facing) 5432 (internal port - private facing listener...)
+#
+#volumes:
+#  postgresql_data:
+#    driver: local
+
 services:
   postgres-db:
     container_name: todo
-    image: postgres # use latest official postgres version
+    image: postgres # using the latest official postgres version
     restart: always
     volumes:
+      # Ensures your database data survives container restarts, here we can specific additional backups for our database if needed.
       - ./postgres-data:/var/lib/postgresql
     environment:
       POSTGRES_USER: chuma
@@ -11,8 +31,9 @@ services:
       POSTGRES_DB: todo
       POSTGRES_HOST_AUTH_METHOD: password
     ports:
-      - "5434:5432" # 5434 (external port - public facing) 5432 (internal port - private facing listener...)
+      - "5434:5432" # 5434 (external port) : 5432 (internal port)
 
+# This tells Docker to create and manage a volume named 'postgresql_data' specifically for our database service above.
 volumes:
   postgresql_data:
     driver: local
